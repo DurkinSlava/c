@@ -161,11 +161,17 @@ int main()
     for (int i = 0; i < N; i++)
         a[i] = i + 1;
 
-    bin_search();
+   // bin_search();
 
     //permutatons(a, 0, N);
     // narayana(a, N);
 
     //free(a);
+
+    queque();
+
+
+
+
     return 0;
 }

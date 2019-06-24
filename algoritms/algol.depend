@@ -1,5 +1,11 @@
 # depslib dependency file v1.0
-1561377946 source:/home/robic/c/algoritms/main.c
+1561383356 source:/home/robic/c/algoritms/main.c
 	<stdio.h>
 	<stdlib.h>
+
+1561388142 source:/home/robic/c/algoritms/queque.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
 

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1561371329 source:/home/robic/c/first/main.c
+	<stdio.h>
+	<stdlib.h>
+

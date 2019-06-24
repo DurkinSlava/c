@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int count = 1;
-
 
 void swap(int *a, int *b)
 {
@@ -21,7 +19,7 @@ void permutatons(int *a, int i, int N)
     {
         printf("%d - ", count++);
         for (int j = 0; j < N; j++)
-            printf("%d ", a[j]);
+            printf("%d ", *(a + j));
         printf("\n");
     }
     else
@@ -102,6 +100,56 @@ void narayana(int *a, int N)
     }
 }
 
+void bin_search()
+{
+    /* Алгортим бинарного поиска */
+
+    const int SIZE = 1000;
+    int a[SIZE];
+
+    for (int i = 0; i < SIZE; i++)
+        a[i] = i + 1;
+
+    printf("Введите целое число:");
+    int num, step = 0;
+
+    scanf("%d", &num);
+
+    int i = 0;
+    int j = SIZE - 1;
+    int t;
+
+    while (i <= j)
+    {
+        step++;
+        t = (i + j) / 2;
+        printf("step %4d a[%4d] = %4d, a[%4d] = %4d, mid = a[%4d] = %4d\n", step, i, a[i], j, a[j], t, a[t]);
+        if (a[t] == num)
+            break;
+        else
+        {
+            if (a[t] < num)
+            {
+                i = t;
+                i++;
+            }
+
+            else
+            {
+                j = t;
+                j--;
+            }
+
+        }
+    } //while (i < j)
+
+    if (a[t] == num)
+        printf("%d finded!", num);
+    else
+        printf("%d do not finded.", num);
+
+}
+
 
 int main()
 {
@@ -113,8 +161,11 @@ int main()
     for (int i = 0; i < N; i++)
         a[i] = i + 1;
 
+    bin_search();
+
     //permutatons(a, 0, N);
-    narayana(a, N);
+    // narayana(a, N);
+
     //free(a);
     return 0;
 }

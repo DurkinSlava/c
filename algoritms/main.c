@@ -168,7 +168,7 @@ int main()
 
     //free(a);
 
-    queque();
+    cyclic_queque();
 
 
 

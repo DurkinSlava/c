@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1561465041 source:/home/robic/c/algoritms/cyclic_queue.c
+1561627854 source:/home/robic/c/algoritms/cyclic_queue.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

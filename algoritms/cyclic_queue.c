@@ -82,7 +82,7 @@ void enter_message()
         if (*s == 0)
             break;
 
-        if ((spos + 1) == rpos || (spos == MAX && !rpos))
+        if ((spos + 1) == rpos || (spos + 1 == MAX && !rpos))
         {
             printf("Queque is full.\n");
             return;
@@ -111,7 +111,7 @@ void qstore(char *pmessage)
 
     p[spos++] = pmessage;
 
-    if (spos == MAX + 1)
+    if (spos == MAX)
         spos = 0;
 
     list_messages();
@@ -121,16 +121,25 @@ void qstore(char *pmessage)
 void list_messages()
 {
     /* Вывод сообщений на экран. */
-    int i = rpos;
-    while (!(i == spos))
+    if (rpos == spos)
+        printf("Queue is empty.");
+    else
     {
-        printf("%s ", p[i]);
+        int i = rpos;
 
-        i++;
-
-        if (i == MAX + 1)
+        if (i == MAX)
             i = 0;
 
+        while (!(i == spos))
+        {
+            printf("%s ", p[i]);
+
+            i++;
+
+            if (i == MAX)
+                i = 0;
+
+        }
     }
     printf("\n");
 }
@@ -145,7 +154,6 @@ void delete_message()
 
     }
 
-    printf("%s\n", p);
     list_messages();
 }
 
@@ -153,11 +161,12 @@ char *retrieve_message()
 {
     /* извлечение сообщения */
 
+    if (rpos == MAX)
+        rpos = 0;
+
     if (rpos == spos)
         return NULL;
 
-    if (rpos == MAX)
-        rpos = 0;
 
     return p[rpos++];
 }

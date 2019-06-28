@@ -21,6 +21,7 @@ int main()
         printf("2. Pop\n");
         printf("3. List\n");
         printf("4. Exit\n");
+        printf("Your choice:");
 
         gets(s);
 
@@ -35,7 +36,7 @@ int main()
                 break;
 
             case '3':
-                pop();
+                list_stack();
                 break;
 
             case '4':
@@ -56,11 +57,12 @@ int main()
 void push()
 {
     /* Добавить в стэк */
-    char s[80];
+    int value = 0;
+    printf("-1 stop enter\n");
+    printf("Input integer number № %d:", tos + 1);
+    scanf("%d", &value);
 
-    gets(s);
-
-    while (*s)
+    while (!(value==-1))
     {
         if (tos == MAX)
         {
@@ -68,21 +70,22 @@ void push()
             break;
         }
         else
-            stack[tos++] = *s;
+            stack[tos++] = value;
 
-        gets[s];
+        printf("Input integer number № %d:", tos + 1);
+        scanf("%d", &value);
     }
 
 }
 
 void pop()
 {
-    /* извлесь из стэка */
+    /* извлечь из стэка */
 
     if (!tos)
         printf("stack is empty.\n");
     else
-        printf(stack[--tos]);
+        printf("%d\n", stack[--tos]);
 
 }
 
@@ -91,4 +94,5 @@ void list_stack()
     /* Печать стэка */
     for (int i = 0; i < MAX; i++)
         printf("%d ", stack[i]);
+    printf("\n");
 }

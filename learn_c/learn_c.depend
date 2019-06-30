@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1561906988 source:/home/robic/c/learn_c/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1561797028 source:/home/robic/c/learn_c/ext.c
+	<stdio.h>
+
+1561902631 source:/home/robic/c/learn_c/grade_students.c
+	<stdio.h>
+	<ctype.h>
+	<stdlib.h>
+

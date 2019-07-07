@@ -6,6 +6,26 @@
 int global_var;
 int x, y;
 
+struct addr
+{
+    char name[30];
+    char street[40];
+    char city[20];
+    unsigned long int zip;
+} adr_info;
+
+struct addr *addr_pointer;
+
+
+
+struct point
+{
+    int x;
+    int y;
+} points[SIZE];
+
+
+
 void func1();
 void func2();
 /* Последовательность чисел */
@@ -28,8 +48,22 @@ void two_dimesional_array();
 
 /* локальные массивы переменной длины */
 void variable_length_array(int dim);
+/* пример работы с массивом указателей ы*/
+void array_of_pointers();
 
-int main()
+/* поиск номера позиции первого вхождения */
+int find_substr(char *s1, char *s2);
+
+/* Возвращает указатель на первое вхождение символа в строку */
+char *match(char *s, char c);
+
+/* Выводим на экран строку вертикально */
+void print_vertical(char *str);
+
+/* Возвращает факториал числа */
+int factorial(int n);
+
+void main()
 {
     char s[80];
     char ch;
@@ -37,9 +71,33 @@ int main()
     register int i, j;
     wchar_t wc;
 
-    variable_length_array(3);
-    variable_length_array(6);
-    variable_length_array(10);
+    addr_pointer = &adr_info;
+
+    strcpy(adr_info.name, "John fon Neyman.");
+    adr_info.zip = 164500;
+
+    printf("%s\n", addr_pointer -> name);
+    printf("%d\n", addr_pointer -> zip);
+
+    printf("Factorial of %d is %d\n", 3, factorial(3));
+
+    char str[] = "How little we know";
+    char fs[] = "little";
+
+    printf("pos is %d \n", find_substr(str, fs));
+    char *p;
+
+    p = match(fs, 'a');
+
+    if (*p)
+        printf("Symbol finded.\n");
+    else
+        printf("oops.\n");
+
+    print_vertical("C is fine.\n");
+
+
+    //array_of_pointers();
 
     //grade_students();
 
@@ -94,6 +152,28 @@ int main()
         printf("character %c is not in string \"%s\"", ch, s);
 
     return 0;
+}
+
+/* поиск номера позиции первого вхождения */
+int find_substr(char *s1, char *s2)
+{
+    char *p1, *p2;
+
+    for (int i = 0; s1[i]; i++)
+    {
+        p1 = &s1[i];
+        p2 = s2;
+
+        while (*p2 && *p1 ==*p2)
+        {
+            p1++;
+            p2++;
+        }
+
+        if (!*p2)
+            return i;
+    }
+    return -1;
 }
 
 int is_in(char *s, char c)
@@ -237,4 +317,29 @@ void variable_length_array(int dim)
     for (int i = 0; i < dim; i++)
         printf("%d ", *(a+i));
     printf("\n");
+}
+
+/* Возвращает указатель на первое вхождение символа в строку */
+char *match(char *s, char c)
+{
+    while (*s && *s != c)
+        s++;
+
+    return s;
+}
+
+/* Выводим на экран строку вертикально */
+void print_vertical(char *str)
+{
+    while (*str)
+        printf("%c\n", *str++);
+
+}
+/* Возвращает факториал числа */
+int factorial(int n)
+{
+    if (n)
+        return n * factorial(n - 1);
+    else
+        return 1;
 }

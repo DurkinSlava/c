@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1561906988 source:/home/robic/c/learn_c/main.c
+1562490603 source:/home/robic/c/learn_c/main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -11,4 +11,8 @@
 	<stdio.h>
 	<ctype.h>
 	<stdlib.h>
+
+1561915172 source:/home/robic/c/learn_c/array_of_pointers.c
+	<stdio.h>
+	<string.h>
 

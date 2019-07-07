@@ -31,10 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="array_of_pointers.c">
+			<Option compilerVar="CPP" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="ext.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="grade_students.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="link_list.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="main.c">
